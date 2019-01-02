@@ -12,7 +12,7 @@ class BlogCreateView(ListCreateAPIView):
 class GetUserBlog(RetrieveAPIView):
     serializer_class = BlogSerializer
     queryset = Blog.objects.all()
-    lookup_field = 'author'
+    lookup_field = 'pk'
 
 
 class UpdateBlog(UpdateAPIView):
