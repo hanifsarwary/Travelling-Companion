@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.generics import UpdateAPIView,CreateAPIView,RetrieveAPIView,RetrieveUpdateAPIView,ListAPIView,ListCreateAPIView
+from rest_framework.generics import UpdateAPIView,CreateAPIView,RetrieveAPIView,RetrieveUpdateAPIView,ListAPIView,ListCreateAPIView,DestroyAPIView
 # Create your views here.
 from .Serializer import *
 
@@ -20,5 +20,9 @@ class UpdateBlog(UpdateAPIView):
     queryset = Blog.objects.all()
     lookup_field = 'pk'
 
+
+class DeleteBlog(DestroyAPIView):
+    serializer_class = BlogSerializer
+    lookup_field = 'pk'
 
 
