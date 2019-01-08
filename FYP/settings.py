@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'UserHandling.apps.UserhandlingConfig',
-    'social_django',
+
     'rest_framework',
     'Blog.apps.BlogConfig',
-    'Chat.apps.ChatConfig'
+    'Chat.apps.ChatConfig',
+    'Search.apps.SearchConfig',
+    'Sharing.apps.SharingConfig',
 ]
 
 MIDDLEWARE = [
@@ -52,7 +54,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'FYP.urls'
