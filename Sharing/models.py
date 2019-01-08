@@ -23,3 +23,14 @@ class CarSharing(Service):
     car_number = models.CharField(max_length=15)
 
 
+class LuggageSharing(Service):
+    choices = (
+        ('lhr','Lahore'),
+        ('fsd','Faisalabad'),
+        ('isb','Islamabad'),
+    )
+
+    capacity = models.PositiveIntegerField(default=1)
+    source_location = models.CharField(choices=choices, max_length=15)
+    dest_location = models.CharField(choices=choices, max_length=15)
+
