@@ -4,6 +4,8 @@ from UserHandling.models import Profile
 from datetime import date
 
 
+
+
 class Blog(models.Model):
     """
     Model representing a blog post.
@@ -13,6 +15,7 @@ class Blog(models.Model):
     # Foreign Key used because Blog can only have one author/User, but bloggsers can have multiple blog posts.
     description = models.TextField(max_length=2000, help_text="Enter you blog text here.")
     post_date = models.DateField(default=date.today)
+    # image_count = models.PositiveIntegerField(default=0)
 
     class Meta:
         ordering = ["-post_date"]
@@ -21,7 +24,15 @@ class Blog(models.Model):
         """
         String for representing the Model object.
         """
-        return self.name
+        return self.name + ' --- posted by----'+self.author.first_name
+
+
+class BlogPicture(models.Model):
+    picture = models.FileField()
+    blog = models.ForeignKey(Blog,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.blog.name
 
 
 class BlogLike(models.Model):

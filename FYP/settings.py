@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+SOCIAL_AUTH_FACEBOOK_KEY = '564056117409717'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET ='64a5abaef1f1a590daa486bcdbf6a987' #app key
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,14 +39,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'UserHandling.apps.UserhandlingConfig',
-
+'rest_auth',
     'rest_framework',
     'Blog.apps.BlogConfig',
     'Chat.apps.ChatConfig',
     'Search.apps.SearchConfig',
     'Sharing.apps.SharingConfig',
+    'django.contrib.sites',
+    'SocialMedia.apps.SocialmediaConfig',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
 ]
-
+LOGIN_REDIRECT_URL = "/"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -76,7 +83,32 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'FYP.wsgi.application'
 
+AUTHENTICATION_BACKENDS = (
+    'allauth.account.auth_backends.AuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
+SOCIALACCOUNT_PROVIDERS = \
+    {'facebook':
+       {'METHOD': 'oauth2',
+        'SCOPE': ['email','public_profile', 'user_friends'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'FIELDS': [
+            'id',
+            'email',
+            'name',
+            'first_name',
+            'last_name',
+            'verified',
+            'locale',
+            'timezone',
+            'link',
+            'gender',
+            'updated_time'],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': lambda request: 'kr_KR',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v2.4'}}
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 

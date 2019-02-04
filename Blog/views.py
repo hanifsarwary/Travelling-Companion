@@ -11,8 +11,9 @@ class BlogCreateView(ListCreateAPIView):
 
 class GetUserBlog(RetrieveAPIView):
     serializer_class = BlogSerializer
-    queryset = Blog.objects.all()
-    lookup_field = 'pk'
+
+    def get_queryset(self):
+        return Blog.objects.filter(author=self.kwargs['pk'])
 
 
 class UpdateBlog(UpdateAPIView):
@@ -26,3 +27,12 @@ class DeleteBlog(DestroyAPIView):
     lookup_field = 'pk'
 
 
+class AddBlogPicture(ListCreateAPIView):
+    serializer_class = BlogPicture
+
+    def get_queryset(self):
+        Blog.objects.filter(pk=self.kwargs['blogid'])
+
+
+def viewview(request):
+    return render(request,'login.html')

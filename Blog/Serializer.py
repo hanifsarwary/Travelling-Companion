@@ -27,4 +27,11 @@ class BlogEditSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Blog
-        fields = ['description']
+        fields = ['name','description']
+
+
+class BlogPicture(serializers.ModelSerializer):
+
+    class Meta:
+        model = BlogPicture
+        fields = '__all__'
