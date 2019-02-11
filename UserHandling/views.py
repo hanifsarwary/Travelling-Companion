@@ -5,6 +5,7 @@ from django.views import View
 # Create your views here.
 from django.http import JsonResponse
 
+
 class CreateProfileView(ListCreateAPIView):
     serializer_class = ProfileSerializer
     queryset = Profile.objects.all()
@@ -16,12 +17,20 @@ class GetAllUserView(RetrieveAPIView):
     def get_queryset(self):
         return Profile.objects.all()
 
+
 class GetUserCountView(View):
 
-     def get(self,request):
-         count = Profile.objects.all().count()
-         data = {
-             'count':count
-         }
-         return JsonResponse(data)
-    
+    def get(self,request):
+        count = Profile.objects.all().count()
+        data = {
+             'count': count}
+
+        return JsonResponse(data)
+
+
+class GetSingleUser(RetrieveAPIView):
+
+    serializer_class = ProfileSerializer
+
+    def get_queryset(self):
+        return Profile.objects.filter(pk=self.kwargs['pk'])

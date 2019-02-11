@@ -9,6 +9,12 @@ class BlogCreateView(ListCreateAPIView):
     queryset = Blog.objects.all()
 
 
+class GetBlogView(RetrieveAPIView):
+    serializer_class = BlogSerializer
+
+    def get_queryset(self):
+        return Blog.objects.filter(pk=self.kwargs['pk'])
+
 class GetUserBlog(RetrieveAPIView):
     serializer_class = BlogSerializer
 
