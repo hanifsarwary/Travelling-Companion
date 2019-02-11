@@ -29,7 +29,7 @@ class PostComment(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
     # Foreign Key used because BlogComment can only have one author/User, but users can have multiple comments
     post_date = models.DateTimeField(auto_now_add=True)
-    blog = models.ForeignKey(Post, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
     comment_likes = models.PositiveIntegerField(default=0)
 
     class Meta:
@@ -50,6 +50,7 @@ class Group(models.Model):
     group_name = models.CharField(max_length=50)
     date_created = models.DateField()
     time_created = models.TimeField()
+    picture = models.FileField(null=True,default=None)
 
 
 class GroupMembers(models.Model):
