@@ -25,7 +25,7 @@ SECRET_KEY = 'ywr@mk_d54xrv=$2!pcp+)57)11k0j4!h*r3&1l)+adel6chw0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ['*']
 
 SOCIAL_AUTH_FACEBOOK_KEY = '564056117409717'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET ='64a5abaef1f1a590daa486bcdbf6a987' #app key
