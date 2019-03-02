@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.generics import ListCreateAPIView,GenericAPIView
+from rest_framework.generics import ListCreateAPIView,GenericAPIView,RetrieveAPIView
 # Create your views here.
 from .Serializer import *
 from .models import *
@@ -52,3 +52,15 @@ class GroupPostCreateView(ListCreateAPIView):
         return GroupPost.objects.filter(group=self.kwargs['pk'])
 
 
+class GetGroupByIdView(RetrieveAPIView):
+    serializer_class = GroupSerializer
+
+    def get_queryset(self):
+        return Group.objects.filter(pk=self.kwargs['pk'])
+
+
+class GetGroupByNameView(RetrieveAPIView):
+    serializer_class = GroupSerializer
+
+    def get_queryset(self):
+        return Group.objects.filter(group_name=self.kwargs['name'])

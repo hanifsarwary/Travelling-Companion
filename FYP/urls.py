@@ -21,7 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Blog/',include('Blog.urls')),
     path('profile/',include('UserHandling.urls')),
-    path('sharing/',include('Sharing.urls'))
+    path('sharing/',include('Sharing.urls')),
+    path('socialmedia',include('SocialMedia.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
