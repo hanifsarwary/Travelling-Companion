@@ -9,5 +9,6 @@ urlpatterns = [
     path('creategroupmember/<int:pk>',GroupMemberCreateView.as_view()),
     path('creategrouppost/<int:pk>',GroupPostCreateView.as_view()),
     path('getgroupbyid/<int:pk>',GetGroupByIdView.as_view()),
-    path('getgroupbyname/<str:name>',GetGroupByNameView.as_view())
+    path('getgroupbyname/<str:name>',GetGroupByNameView.as_view()),
+    path('getuserpost/<int:pk>',GetPostView.as_view())
 ]

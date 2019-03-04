@@ -34,3 +34,11 @@ class GetSingleUser(RetrieveAPIView):
 
     def get_queryset(self):
         return Profile.objects.filter(pk=self.kwargs['pk'])
+
+
+class GetUserByName(RetrieveAPIView):
+
+    serializer_class = ProfileSerializer
+
+    def get_queryset(self):
+        return Profile.objects.filter(first_name__contains=self.kwargs['name'])

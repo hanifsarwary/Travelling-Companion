@@ -3,4 +3,5 @@ from .views import *
 urlpatterns = [
     path('createprofile',CreateProfileView.as_view()),
     path('auth/', include('rest_auth.urls')),
+    path('getuserbyname/<str:name>',GetUserByName.as_view())
 ]

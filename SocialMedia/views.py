@@ -5,6 +5,13 @@ from .Serializer import *
 from .models import *
 
 
+class GetPostView(RetrieveAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        return Post.objects.all(user=self.kwargs['pk'])
+
+
 class PostCreateView(ListCreateAPIView):
     serializer_class = PostSerializer
     queryset = Post.objects.all()

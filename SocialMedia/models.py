@@ -5,8 +5,8 @@ from UserHandling.models import Profile
 
 class Post(models.Model):
     post_text = models.CharField(max_length=1500)
-    post_date = models.DateField()
-    post_time = models.TimeField()
+    post_date = models.DateField(auto_now_add=True)
+    post_time = models.TimeField(auto_now_add=True)
     user = models.ForeignKey(Profile,on_delete=models.CASCADE)
 
 
