@@ -10,11 +10,11 @@ class PostSerializer(ModelSerializer):
         fields = '__all__'
 
 
-class PostPictureSerializer(ModelSerializer):
-
-    class Meta:
-        model = PostPicture
-        fields = '__all__'
+# class PostPictureSerializer(ModelSerializer):
+#
+#     class Meta:
+#         model = PostPicture
+#         fields = '__all__'
 
 
 class PostLikeSerializer(ModelSerializer):

@@ -10,8 +10,9 @@ class Profile(AbstractUser):
 
 
 class FollowerFollowing(models.Model):
-    followee = models.ForeignKey(Profile,on_delete=models.CASCADE)
-    follower = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    followee = models.ForeignKey(Profile,on_delete=models.CASCADE,related_name='followee')
+    follower = models.ForeignKey(Profile,on_delete=models.CASCADE,related_name='follower'
+                                 )
 
     class Meta:
         unique_together = ('follower','followee')
