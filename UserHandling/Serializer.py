@@ -9,7 +9,6 @@ class ProfileSerializer(ModelSerializer):
 
     def create(self, validated_data):
         validated_data['password'] = hashers.make_password((validated_data['password']))
-        print(validated_data)
         return Profile.objects.create(**validated_data)
 
 

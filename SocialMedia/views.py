@@ -68,6 +68,6 @@ class GetGroupByIdView(RetrieveAPIView):
 
 class GetGroupByNameView(RetrieveAPIView):
     serializer_class = GroupSerializer
-
+    lookup_field = 'group_name'
     def get_queryset(self):
         return Group.objects.filter(group_name=self.kwargs['name'])

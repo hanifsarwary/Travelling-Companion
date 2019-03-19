@@ -11,10 +11,10 @@ class Post(models.Model):
 
 
 
-class PostPicture(models.Model):
-    picture = models.FileField()
-    post = models.ForeignKey(Post,on_delete=models.CASCADE)
-
+# class PostPicture(models.Model):
+#     picture = models.FileField()
+#     post = models.ForeignKey(Post,on_delete=models.CASCADE)
+#
 
 
 
