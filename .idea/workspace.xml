@@ -28,23 +28,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UserHandling/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UserHandling/tests.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UserHandling/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
@@ -128,11 +111,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UserHandling/migrations/0001_initial.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-418" />
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SocialMedia/migrations/0001_initial.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SocialMedia/migrations/0002_auto_20190319_1635.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -415,15 +408,16 @@
       <workItem from="1552305058528" duration="1606000" />
       <workItem from="1552896012678" duration="3471000" />
       <workItem from="1552934965272" duration="806000" />
-      <workItem from="1553011787885" duration="2352000" />
+      <workItem from="1553011787885" duration="2876000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55834000" />
+    <option name="totallyTimeSpent" value="56358000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29380342" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -758,6 +752,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-418" />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SocialMedia/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SocialMedia/migrations/0002_auto_20190319_1635.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
