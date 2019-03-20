@@ -12,3 +12,6 @@ class CreateLuggageView(ListCreateAPIView):
 class GetLuggageView(RetrieveAPIView):
     lookup_field = 'pk'
     serializer_class = LuggageSerializer
+
+    def get_queryset(self):
+        return LuggageSharing.objects.filter(pk=self.kwargs['pk'])
