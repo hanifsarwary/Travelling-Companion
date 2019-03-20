@@ -51,4 +51,4 @@ class GetUserByUsername(RetrieveAPIView):
     lookup_field = 'username'
 
     def get_queryset(self):
-        return Profile.objects.get(username=self.kwargs['username'])
+        return Profile.objects.filter(username=self.kwargs['username'])
