@@ -42,7 +42,7 @@ class GetUserByName(RetrieveAPIView):
     lookup_field = 'first_name'
 
     def get_queryset(self):
-        return Profile.objects.filter(first_name__contains=self.kwargs['name'])
+        return Profile.objects.filter(first_name__contains=self.kwargs['first_name'])
 
 
 class GetUserByUsername(RetrieveAPIView):
