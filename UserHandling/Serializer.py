@@ -8,11 +8,10 @@ class ProfileSerializer(ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, style={'input_type': 'password'})
 
     def create(self, validated_data):
-        validated_data['password'] = hashers.make_password((validated_data['password']))
+        validated_data['password'] = hashers.make_password(validated_data['password'])
         return Profile.objects.create(**validated_data)
-
 
     class Meta:
         model = Profile
-        fields = '__all__'
+        fields = ('username','email', 'first_name','last_name','password')
 
