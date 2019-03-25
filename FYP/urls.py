@@ -18,11 +18,13 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
+    path('',admin.site.urls),
     path('admin/', admin.site.urls),
     path('Blog/',include('Blog.urls')),
     path('profile/',include('UserHandling.urls')),
     path('sharing/',include('Sharing.urls')),
     path('socialmedia/',include('SocialMedia.urls')),
+    path('chat/',include('Chat.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

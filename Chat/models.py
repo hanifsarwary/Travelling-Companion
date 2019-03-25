@@ -25,6 +25,9 @@ class Message(models.Model):
     text = models.TextField(verbose_name=_("Message text"))
     read = models.BooleanField(verbose_name=_("Read"), default=False)
     all_objects = models.Manager()
+    message_time = models.TimeField(auto_now_add=True)
+    message_date = models.DateField(auto_now_add=True)
+
 
     def get_formatted_create_datetime(self):
         return dj_date(localtime(self.created), settings.DATETIME_FORMAT)

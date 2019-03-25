@@ -9,9 +9,42 @@ class CreateLuggageView(ListCreateAPIView):
     queryset = LuggageSharing.objects.all()
 
 
-class GetLuggageView(RetrieveAPIView):
+class GetAllLuggageView(ListAPIView):
+    serializer_class = LuggageSerializer
+
+    def get_queryset(self):
+        return LuggageSharing.objects.filter(active=True)
+
+
+class GetOneLuggageView(RetrieveAPIView):
     lookup_field = 'pk'
     serializer_class = LuggageSerializer
 
     def get_queryset(self):
         return LuggageSharing.objects.filter(pk=self.kwargs['pk'])
+
+
+class UpdateLuggageView(RetrieveUpdateAPIView):
+    serializer_class = LuggageSerializer
+    lookup_field = 'pk'
+
+
+class CreateCarView(CreateAPIView):
+    serializer_class = CarSerializer
+    queryset = CarSharing.objects.all()
+
+
+class GetAllCarView(RetrieveAPIView):
+    serializer_class = CarSerializer
+    queryset = CarSharing.objects.filter(active=True)
+
+
+class GetOneCarView(RetrieveAPIView):
+
+    serializer_class = CarSerializer
+    lookup_field = 'pk'
+
+    def get_queryset(self):
+        return CarSharing.objects.filter(pk=self.kwargs['pk'])
+
+

@@ -52,6 +52,12 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10
+}
+
 LOGIN_REDIRECT_URL = "/"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
