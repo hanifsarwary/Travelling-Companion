@@ -19,7 +19,7 @@ class CarSharing(Service):
 
     capacity = models.PositiveIntegerField(default=1)
     source_location = models.CharField(choices=choices,max_length=15)
-    dest_location = models.CharField(choices=super().choices,max_length=15)
+    dest_location = models.CharField(choices=choices,max_length=15)
     car_model = models.CharField(max_length=20)
     car_number = models.CharField(max_length=15)
 
