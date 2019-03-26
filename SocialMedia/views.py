@@ -9,7 +9,7 @@ class GetPostView(RetrieveAPIView):
     serializer_class = PostSerializer
 
     def get_queryset(self):
-        return Post.objects.all(pk=self.kwargs['pk'])
+        return Post.objects.all(id=self.kwargs['pk'])
 
 
 class PostCreateView(ListCreateAPIView):
