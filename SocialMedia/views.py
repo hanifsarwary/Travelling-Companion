@@ -73,9 +73,10 @@ class GetGroupByNameView(RetrieveAPIView):
     def get_queryset(self):
         return Group.objects.filter(group_name=self.kwargs['group_name'])
 
+
 class GetUserPost(RetrieveAPIView):
     serializer_class = PostSerializer
-    lookup_field = 'user'
+    lookup_field = 'username'
 
     def get_queryset(self):
         return Post.objects.filter(user__username=self.kwargs['username'])
