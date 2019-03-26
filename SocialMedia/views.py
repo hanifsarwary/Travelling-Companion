@@ -76,7 +76,7 @@ class GetGroupByNameView(RetrieveAPIView):
 
 class GetUserPost(RetrieveAPIView):
     serializer_class = PostSerializer
-    lookup_field = 'username'
+    lookup_field = 'user__username'
 
     def get_queryset(self):
         return Post.objects.filter(user__username=self.kwargs['username'])
