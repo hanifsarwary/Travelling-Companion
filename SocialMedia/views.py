@@ -9,7 +9,7 @@ class GetPostView(RetrieveAPIView):
     serializer_class = PostSerializer
 
     def get_queryset(self):
-        return Post.objects.all(user=self.kwargs['pk'])
+        return Post.objects.all(pk=self.kwargs['pk'])
 
 
 class PostCreateView(ListCreateAPIView):
@@ -75,7 +75,7 @@ class GetGroupByNameView(RetrieveAPIView):
 
 class GetUserPost(RetrieveAPIView):
     serializer_class = PostSerializer
-    lookup_field = 'username'
+    lookup_field = 'user'
 
     def get_queryset(self):
         return Post.objects.filter(user__username=self.kwargs['username'])
@@ -83,7 +83,6 @@ class GetUserPost(RetrieveAPIView):
 
 class GetUserPostById(RetrieveAPIView):
     serializer_class = PostSerializer
-    lookup_field = 'user'
 
     def get_queryset(self):
         return Post.objects.filter(user__pk=self.kwargs['pk'])
