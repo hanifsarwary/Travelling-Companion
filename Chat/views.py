@@ -34,7 +34,7 @@ class GetMessageView(RetrieveAPIView):
     lookup_field = 'pk'
 
     def get_queryset(self):
-        return Message.objects.get(pk=self.kwargs['pk'])
+        return Message.all_objects.get(pk=self.kwargs['pk'])
 
 
 class GetAllDialogsView(ListAPIView):
@@ -55,4 +55,4 @@ class GetDialogMessagesView(RetrieveAPIView):
     lookup_field = 'dialog'
 
     def get_queryset(self):
-        return Message.objects.filter(dialog=self.kwargs['dialog'])
+        return Message.all_objects.filter(dialog=self.kwargs['dialog'])
