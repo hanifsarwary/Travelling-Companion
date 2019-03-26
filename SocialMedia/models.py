@@ -9,6 +9,9 @@ class Post(models.Model):
     post_time = models.TimeField(auto_now_add=True)
     user = models.ForeignKey(Profile,on_delete=models.CASCADE)
 
+    @property
+    def user__username(self):
+        return self.user.username
 
 
 # class PostPicture(models.Model):
