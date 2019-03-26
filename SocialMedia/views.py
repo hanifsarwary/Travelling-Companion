@@ -79,7 +79,7 @@ class GetUserPost(RetrieveAPIView):
     lookup_field = 'user__username'
 
     def get_queryset(self):
-        return Post.objects.filter(user__username=self.kwargs['username'])
+        return Post.objects.filter(user__username=self.kwargs['user__username'])
 
 
 class GetUserPostById(RetrieveAPIView):
