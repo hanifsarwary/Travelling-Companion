@@ -6,7 +6,7 @@ from django.views import View
 from django.http import JsonResponse
 
 
-class CreateProfileView(ListCreateAPIView):
+class CreateProfileView(CreateAPIView):
     serializer_class = ProfileSerializer
     queryset = Profile.objects.all()
 
