@@ -47,9 +47,9 @@ class PostComment(models.Model):
 
 class Group(models.Model):
     group_admin = models.ForeignKey(Profile, on_delete=models.SET_NULL,null=True)
-    group_name = models.CharField(max_length=50)
-    date_created = models.DateField()
-    time_created = models.TimeField()
+    group_name = models.CharField(max_length=50,unique=True)
+    date_created = models.DateField(auto_now_add=True)
+    time_created = models.TimeField(auto_now_add=True)
     picture = models.FileField(null=True,default=None)
 
 

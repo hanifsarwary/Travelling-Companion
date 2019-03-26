@@ -4,18 +4,17 @@ from UserHandling.models import Profile
 from Search.models import Location
 
 
-class Service(models.Model):
-    posted_by = models.ForeignKey(Profile,on_delete=models.CASCADE)
-    post_time = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=True)
 
 
-class CarSharing(Service):
+class CarSharing(models.Model):
     choices = (
         ('lhr', 'Lahore'),
         ('fsd', 'Faisalabad'),
         ('isb', 'Islamabad'),
     )
+    posted_by = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    post_time = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=True)
 
     capacity = models.PositiveIntegerField(default=1)
     source_location = models.CharField(choices=choices,max_length=15)
@@ -24,12 +23,16 @@ class CarSharing(Service):
     car_number = models.CharField(max_length=15)
 
 
-class LuggageSharing(Service):
+class LuggageSharing(models.Model):
     choices = (
         ('lhr', 'Lahore'),
         ('fsd', 'Faisalabad'),
         ('isb', 'Islamabad'),
     )
+    posted_by = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    post_time = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=True)
+
 
     capacity = models.PositiveIntegerField(default=1)
     source_location = models.CharField(choices=choices, max_length=15)

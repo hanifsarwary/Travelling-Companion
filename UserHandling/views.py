@@ -12,7 +12,7 @@ class CreateProfileView(ListCreateAPIView):
 
 
 class GetAllUserView(RetrieveAPIView):
-    serializer_class = ProfileSerializer
+    serializer_class = ProfileSendSerializer
 
     def get_queryset(self):
         return Profile.objects.all()
@@ -30,7 +30,7 @@ class GetUserCountView(View):
 
 class GetSingleUser(RetrieveAPIView):
 
-    serializer_class = ProfileSerializer
+    serializer_class = ProfileSendSerializer
 
     def get_queryset(self):
         return Profile.objects.filter(pk=self.kwargs['pk'])
@@ -38,7 +38,7 @@ class GetSingleUser(RetrieveAPIView):
 
 class GetUserByName(RetrieveAPIView):
 
-    serializer_class = ProfileSerializer
+    serializer_class = ProfileSendSerializer
     lookup_field = 'first_name'
 
     def get_queryset(self):
@@ -47,7 +47,7 @@ class GetUserByName(RetrieveAPIView):
 
 class GetUserByUsername(RetrieveAPIView):
 
-    serializer_class = ProfileSerializer
+    serializer_class = ProfileSendSerializer
     lookup_field = 'username'
 
     def get_queryset(self):
