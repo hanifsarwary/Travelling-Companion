@@ -34,7 +34,7 @@ class FileValidator(object):
 
         if self.min_size is not None and data.size < self.min_size:
             params = {
-                'min_size': filesizeformat(self.mix_size),
+                'min_size': filesizeformat(self.min_size),
                 'size': filesizeformat(data.size)
             }
             raise ValidationError(self.error_messages['min_size'],
@@ -60,7 +60,7 @@ class FileValidator(object):
 
 class ProfileSerializer(ModelSerializer):
     validate_file = FileValidator(max_size=1024 * 1000,
-                                  content_types=('application/json',))
+                                  content_types=('application/json','image/jpeg'))
     password = serializers.CharField(write_only=True, required=True, style={'input_type': 'password'})
     profile_pic = serializers.FileField(validators=[validate_file],allow_null=True)
     # def create(self, validated_data):
@@ -76,4 +76,19 @@ class ProfileSendSerializer(ModelSerializer):
 
     class Meta:
         model = Profile
+        fields = '__all__'
+
+
+class GetFollowerFolloweeSerializer(ModelSerializer):
+
+    class Meta:
+        model = FollowerFollowing
+        fields = '__all__'
+        depth = 1
+
+
+class FollowerFolloweeSerializer(ModelSerializer):
+
+    class Meta:
+        model = FollowerFollowing
         fields = '__all__'

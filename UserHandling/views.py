@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .Serializer import *
-from rest_framework.generics import CreateAPIView,ListCreateAPIView,RetrieveAPIView
+from rest_framework.generics import CreateAPIView,ListCreateAPIView,RetrieveAPIView,ListAPIView
 from django.views import View
 # Create your views here.
 from django.http import JsonResponse
@@ -52,3 +52,19 @@ class GetUserByUsername(RetrieveAPIView):
 
     def get_queryset(self):
         return Profile.objects.filter(username=self.kwargs['username'])
+
+
+class GetUserFollowers(ListAPIView):
+    serializer_class = GetFollowerFolloweeSerializer
+    lookup_field = 'pk'
+
+    def get_queryset(self):
+        # objs = FollowerFollowing.objects.all()
+        # for obj in objs:
+        #     print(obj.followee.id)
+        return FollowerFollowing.objects.filter(followee=self.kwargs['pk'])
+
+
+class CreateFollowerFollowee(CreateAPIView):
+    serializer_class = FollowerFolloweeSerializer
+    queryset = FollowerFollowing.objects.all()

@@ -31,11 +31,11 @@ class PostCommentCreateView(ListCreateAPIView):
         return PostComment.objects.filter(post=self.kwargs['pk'])
 
 
-# class PostPictureCreateView(ListCreateAPIView):
-#     serializer_class = PostPictureSerializer
-#
-#     def get_queryset(self):
-#         return Post.objects.all()
+class PostPictureCreateView(ListCreateAPIView):
+    serializer_class = PostPictureSerializer
+
+    def get_queryset(self):
+        return PostPicture.objects.all()
 
 
 class GroupCreateView(ListCreateAPIView):

@@ -3,7 +3,6 @@ from .models import Dialog, Message
 
 
 class DialogSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Dialog
         fields = '__all__'
