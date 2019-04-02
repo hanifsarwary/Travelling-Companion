@@ -3,10 +3,10 @@ from rest_framework.generics import UpdateAPIView,CreateAPIView,RetrieveAPIView,
 # Create your views here.
 from .Serializer import *
 
-
 class BlogCreateView(ListCreateAPIView):
     serializer_class = BlogSerializer
     queryset = Blog.objects.all()
+
 
 
 class GetBlogView(RetrieveAPIView):
