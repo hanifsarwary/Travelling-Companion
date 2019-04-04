@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.generics import ListCreateAPIView,GenericAPIView,RetrieveAPIView
+from rest_framework.generics import ListCreateAPIView,GenericAPIView,RetrieveAPIView,DestroyAPIView
 # Create your views here.
 from .Serializer import *
 from .models import *
@@ -87,3 +87,18 @@ class GetUserPostById(RetrieveAPIView):
 
     def get_queryset(self):
         return Post.objects.filter(user__pk=self.kwargs['pk'])
+
+
+class PostDeleteView(DestroyAPIView):
+    serializer_class = PostSerializer
+    lookup_field = 'pk'
+
+
+class LikeDeleteView(DestroyAPIView):
+    serializer_class = PostLikeSerializer
+    lookup_field = 'pk'
+
+
+class CommentDeleteView(DestroyAPIView):
+    serializer_class = PostCommentSerializer
+    lookup_field = 'pk'

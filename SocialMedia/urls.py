@@ -13,4 +13,7 @@ urlpatterns = [
     path('getpost/<int:pk>',GetPostView.as_view()),
     path('getuserpost/<str:user__username>',GetUserPost.as_view()),
     path('getuserpostbyid/<int:pk>',GetUserPostById.as_view()),
+    path('deletepostbyid/<int:pk>',PostDeleteView.as_view()),
+    path('deletepostlikebyid/<int:pk>',LikeDeleteView.as_view()),
+    path('deletepostcommentbyid/<int:pk>',CommentDeleteView.as_view()),
 ]
