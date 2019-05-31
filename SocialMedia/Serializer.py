@@ -64,7 +64,7 @@ class PostSerializer(ModelSerializer):
         fields = '__all__'
 
 # we must always make different GET and POST serializer so we can easily manipulate our desired fields and we can also gain more control
-#depth should only be used in the POST serializer where we are not concerned abaout adding data into database
+#depth should only be used in the GET serializer where we are not concerned abaout adding data into database
 
 class PostPictureSerializer(ModelSerializer):
     validate_file = FileValidator(max_size=1024 * 1000, content_types=('application/json', 'image/jpeg','image/png'))
