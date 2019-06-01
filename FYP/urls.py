@@ -24,7 +24,7 @@ urlpatterns = [
     path('sharing/',include('Sharing.urls')),
     path('socialmedia/',include('SocialMedia.urls')),
     path('chat/',include('Chat.urls')),
-    path('notification/',include('notifications.urls'))
+    path('notification/',include('notifications.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
